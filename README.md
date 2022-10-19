@@ -1,2 +1,3 @@
-# problemset3
-problem set 3 python scripts
+# Problem Set 3
+Solutions for problem set 3
+Adithi Jeevan
