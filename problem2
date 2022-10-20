@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+file = open('CO-OPS.csv')
+next(file)
+max_water = float(0)
+max_date = ""
+min_water = 1.7976931348623157e+307
+min_date = ""
+for line in file:
+   column = line.split(",")
+   water_level = column[1]
+   datetime = column[0]
+   if (water_level == ""): water_level = max_water
+   if float(water_level) > max_water:
+      max_water = float(water_level)
+      max_date = datetime
+   if float(water_level) < min_water:
+      min_water = float(water_level)
+      min_date = datetime
+print ("The maximum water level was", max_water, "and occurred on", max_date)
+print ("The minimum water level was", min_water, "and occurred on", min_date)
