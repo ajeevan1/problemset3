@@ -4,18 +4,25 @@ file = open('CO-OPS.csv')
 next(file)
 max_water = float(0)
 max_date = ""
-min_water = 1.7976931348623157e+307
+avg_water = 0
+min_water = 1.7976931348623157e+307  # arbitrary high float value 
 min_date = ""
+count = 0
+total_water = 0
 for line in file:
-   column = line.split(",")
+   column = line.split(",")  # splits file to isolate water level column
    water_level = column[1]
    datetime = column[0]
-   if (water_level == ""): water_level = max_water
-   if float(water_level) > max_water:
+   count = count + 1  # counts number of water level readings
+   if (water_level == ""): water_level = max_water  # accounts for blank value in column
+   if float(water_level) > max_water:  # determines maximum water level
       max_water = float(water_level)
       max_date = datetime
-   if float(water_level) < min_water:
+   if float(water_level) < min_water:  # determines minimum water level
       min_water = float(water_level)
       min_date = datetime
+   total_water = total_water + float(water_level) # determines sum of all water level readings
+avg_water = total_water/count  # calculates average water level
 print ("The maximum water level was", max_water, "and occurred on", max_date)
 print ("The minimum water level was", min_water, "and occurred on", min_date)
+print (" The average water level is", avg_water)
