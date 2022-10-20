@@ -18,5 +18,5 @@ for line in file:
          prev_level = float(curr_level)
          date_change = datetime
       else: prev_level = float(curr_level)
-print("The maximum change was", max_change, "and occurred on", date_change)
+print "The maximum change was", max_change, "and occurred on", date_change
 
