@@ -10,13 +10,13 @@ for line in file:
    datetime = column[0]
    if (curr_level == ""):  # checks for no measurement received
       curr_level = prev_level
-      print "No measurement receieved. Oh no"
+      print ("No measurement receieved. Oh no")
    if (prev_level == -1.79e+308): 
       prev_level = float(curr_level)
    else:
       if (float(curr_level) >= 5.0): # checks for water level increasing by over 5
-         print "High water level warning!! Water level increased over 5.0"
+         print ("High water level warning!! Water level increased over 5.0")
       if (float(curr_level) - prev_level >= 0.25):  # checks for water level increasing by over 0.25
-         print "Water level increased by over 0.25!"
+         print ("Water level increased by over 0.25!")
          prev_level = float(curr_level)
       else: prev_level = float(curr_level) # continues through file
